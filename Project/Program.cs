@@ -6,7 +6,7 @@ namespace Project;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
         var services = builder.Services;
@@ -28,6 +28,7 @@ public class Program
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
         builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
         builder.Services.AddRazorPages();
 
@@ -56,6 +57,18 @@ public class Program
         app.UseAuthorization();
 
         app.MapRazorPages();
+
+        using(var scope = app.Services.CreateScope()){
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            var roles = new[] {"Admin", "Employee", "Viewer"};
+
+            foreach (var role in roles){
+                if(!await roleManager.RoleExistsAsync(role)){
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+        }
 
         app.Run();
     }
