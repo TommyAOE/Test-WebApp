@@ -1,0 +1,38 @@
+﻿@page
+@model AdminModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users and Their Roles</h1>
+
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UserName</th>
+                <th>Current Role</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.UsersWithRoles.Count; i++)
+            {
+                var userWithRoles = Model.UsersWithRoles[i];
+                <tr>
+                    <td>@userWithRoles.UserName</td>
+                    <td>@foreach(var role in userWithRoles.Roles)
+                        @role
+                    </td>
+                    <td>
+                        <select name="Roles[@i]" asp-items="new SelectList(userWithRoles.AvailableRoles)">
+                            <option value="">Select Roles</option>
+                        </select>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Save Roles</button>
+</form>
