@@ -189,6 +189,7 @@ namespace Project.Areas.Identity.Pages.Account
                         }
 
                         await _signInManager.SignInAsync(user, isPersistent: false, info.LoginProvider);
+                        
                         return LocalRedirect(returnUrl);
                     }
                 }

@@ -292,3 +292,4 @@ C:\Users\fullm\Desktop\Test-WebApp\Project\bin\Debug\net7.0\runtimes\win\lib\net
 C:\Users\fullm\Desktop\Test-WebApp\Project\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\fullm\Desktop\Test-WebApp\Project\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 c:\Users\fullm\Desktop\Test-WebApp\Project\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+c:\Users\fullm\Desktop\Test-WebApp\Project\obj\Debug\net7.0\scopedcss\Pages\Calendar.cshtml.rz.scp.css

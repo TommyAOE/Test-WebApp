@@ -12,8 +12,18 @@ public class IndexModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public IActionResult OnGetAsync()
     {
-
+        if(User.IsInRole("Admin")){
+            return RedirectToPage("Admin");
+        }else if(User.IsInRole("Pending")){
+            return RedirectToPage("Pending");
+        }else if(User.IsInRole("Employee")){
+            return RedirectToPage("Calendar");
+        }else if(User.IsInRole("Viewer")){
+            return RedirectToPage("Calendar");
+        }else{
+            return RedirectToPage("Calendar");
+        }
     }
 }

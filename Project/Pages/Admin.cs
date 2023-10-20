@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ public class UserRolesViewModel
     public List<string> Roles { get; set; }
     public List<string> AvailableRoles { get; set; }
 }
+[Authorize(Roles = "Admin")]
 public class AdminModel : PageModel
 {
     public readonly UserManager<IdentityUser> _userManager;
@@ -51,7 +53,25 @@ public class AdminModel : PageModel
         var usersWithRolesJson = TempData["UsersWithRoles"] as string;
 
         // Deserialize the JSON string back to the original object
-        var usersWithRoles = JsonConvert.DeserializeObject<List<UserRolesViewModel>>(usersWithRolesJson);
+        if(usersWithRolesJson != null)
+            UsersWithRoles = JsonConvert.DeserializeObject<List<UserRolesViewModel>>(usersWithRolesJson);
+        else{
+            UsersWithRoles = new List<UserRolesViewModel>();
+            var users = await _userManager.Users.ToListAsync();
+            var availableRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                UsersWithRoles.Add(new UserRolesViewModel
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                    Roles = roles.ToList(),
+                    AvailableRoles = availableRoles
+                });
+            }
+        }
+        var usersWithRoles = UsersWithRoles;
 
         // Check for null, then perform operations on usersWithRoles...
         if (!ModelState.IsValid)
@@ -77,6 +97,6 @@ public class AdminModel : PageModel
             i++;
         }
         // Redirect to a success page or return to the same page with a success message
-        return RedirectToPage("Index"); // Redirect to the desired page
+        return Page(); // Redirect to the desired page
     }
 }

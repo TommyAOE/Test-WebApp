@@ -1,0 +1,37 @@
+﻿@page
+@model CalendarModel
+@{
+    ViewData["Title"] = "Calendar";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.css" />
+    <link rel="stylesheet" href="Calendar.cshtml.css" />
+</head>
+
+<body>
+    <div class="calendar" id='calendar'></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/fullcalendar.min.js"></script>
+
+    <script>
+        var $jq = jQuery.noConflict();
+
+        $jq(document).ready(function() {
+            $jq('#calendar').fullCalendar({
+                events: [
+                    {
+                        title: 'Event 1',
+                        start: '2023-10-25'
+                    },
+                    {
+                        title: 'Event 2',
+                        start: '2023-10-28'
+                    }
+                ]
+            });
+        });
+    </script>
+</body>

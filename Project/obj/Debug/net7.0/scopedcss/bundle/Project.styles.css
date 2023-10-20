@@ -1,3 +1,8 @@
+/* _content/Project/Pages/Calendar.cshtml.rz.scp.css */
+.calendar[b-i70ifp24od]{
+    width: 50%;
+    height: 50%;
+}
 /* _content/Project/Pages/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
@@ -47,3 +52,4 @@ button.accept-policy[b-27ma7xtkuc] {
   white-space: nowrap;
   line-height: 60px;
 }
+
