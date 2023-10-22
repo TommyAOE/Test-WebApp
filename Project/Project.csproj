@@ -10,8 +10,19 @@
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+      <FodyWeaversXmlPath>$(MSBuildThisFileDirectory)FodyWeavers.xml</FodyWeaversXmlPath>
+  </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.12" />

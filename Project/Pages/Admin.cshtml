@@ -10,7 +10,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>UserName</th>
+                <th>Email</th>
                 <th>Current Role</th>
                 <th>Roles</th>
             </tr>
@@ -34,5 +34,27 @@
         </tbody>
     </table>
 
-    <button type="submit" class="btn btn-primary">Save Roles</button>
+    <h1>Leave Requests</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.LeaveRequests.Count; i++)
+            {
+                var leaverequest = Model.LeaveRequests[i];
+                <tr>
+                    <td>@leaverequest.Email</td>
+                    <td>@leaverequest.StartDate</td>
+                    <td>@leaverequest.EndDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>

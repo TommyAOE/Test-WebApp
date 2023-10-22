@@ -46,6 +46,33 @@
           }
         }
       },
+      "Costura.Fody/5.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.5.5",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/Costura.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.0/Costura.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/Costura.Fody.props": {},
+          "build/Costura.Fody.targets": {}
+        }
+      },
+      "Fody/6.5.5": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -4619,6 +4646,60 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Costura.Fody/5.7.0": {
+      "sha512": "MmL28WOOnJEBWORXj6bfSxfWaZW8gWSXEJTdrjB9AQi4COX6RXr2xdGL9HsxpWwn6f5Io0NmNuwFJe94w1YmQA==",
+      "type": "package",
+      "path": "costura.fody/5.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Costura.Fody.props",
+        "build/Costura.Fody.targets",
+        "costura.fody.5.7.0.nupkg.sha512",
+        "costura.fody.nuspec",
+        "icon.png",
+        "lib/netstandard1.0/Costura.dll",
+        "lib/netstandard1.0/Costura.pdb",
+        "lib/netstandard1.0/Costura.xml",
+        "netclassicweaver/Costura.Fody.dll",
+        "netclassicweaver/Costura.Fody.xcf",
+        "netstandardweaver/Costura.Fody.dll",
+        "netstandardweaver/Costura.Fody.xcf"
+      ]
+    },
+    "Fody/6.5.5": {
+      "sha512": "Krca41L/PDva1VsmDec5n52cQZxQAQp/bsHdzsNi8iLLI0lqKL94fNIkNaC8tVolUkCyWsbzvxfxJCeD2789fA==",
+      "type": "package",
+      "path": "fody/6.5.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.5.5.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
       ]
     },
     "Humanizer/2.14.1": {
@@ -12629,6 +12710,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Costura.Fody >= 5.7.0",
       "Microsoft.AspNetCore.Authentication.Facebook >= 7.0.12",
       "Microsoft.AspNetCore.Authentication.Google >= 7.0.12",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 7.0.12",
@@ -12643,24 +12725,26 @@
     ]
   },
   "packageFolders": {
-    "/home/tommy/.nuget/packages/": {}
+    "C:\\Users\\fullm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/tommy/Desktop/Test-WebApp/Project/Project.csproj",
+      "projectUniqueName": "C:\\Users\\fullm\\Desktop\\Project\\Test-WebApp\\Project\\Project.csproj",
       "projectName": "Project",
-      "projectPath": "/home/tommy/Desktop/Test-WebApp/Project/Project.csproj",
-      "packagesPath": "/home/tommy/.nuget/packages/",
-      "outputPath": "/home/tommy/Desktop/Test-WebApp/Project/obj/",
+      "projectPath": "C:\\Users\\fullm\\Desktop\\Project\\Test-WebApp\\Project\\Project.csproj",
+      "packagesPath": "C:\\Users\\fullm\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fullm\\Desktop\\Project\\Test-WebApp\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/tommy/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\fullm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12679,6 +12763,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Costura.Fody": {
+            "target": "Package",
+            "version": "[5.7.0, )"
+          },
           "Microsoft.AspNetCore.Authentication.Facebook": {
             "target": "Package",
             "version": "[7.0.12, )"
@@ -12747,7 +12835,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/tommy/.dotnet/sdk/7.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

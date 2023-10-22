@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Project.Data;
 public class UserRolesViewModel
 {
     public string UserId { get; set; }
@@ -16,18 +17,21 @@ public class AdminModel : PageModel
 {
     public readonly UserManager<IdentityUser> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly Project.Data.LeaveRequestDbContext _context;
+    public List<LeaveRequest> LeaveRequests {get; set;}
 
-    public AdminModel(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+    public AdminModel(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, Project.Data.LeaveRequestDbContext context)
     {
         _userManager = userManager;
         _roleManager = roleManager;
+        _context = context;
     }
     [BindProperty]
     public List<UserRolesViewModel> UsersWithRoles { get; private set; }
 
     public async Task<IActionResult> OnGetAsync()
     {
-        
+        LeaveRequests = _context.LeaveRequests.ToList();
         var users = await _userManager.Users.ToListAsync();
         var availableRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
 

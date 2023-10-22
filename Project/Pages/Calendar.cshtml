@@ -25,19 +25,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/fullcalendar.min.js"></script>
-
     <script>
         var $jq = jQuery.noConflict();
 
         $jq(document).ready(function() {
             $jq('#calendar').fullCalendar({
-                events: {
-                url: '/Calendar?handler=Events', // Endpoint to fetch events data
-                method: 'get',
-                failure: function() {
-                    alert('There was an error fetching events!');
-                }
             });
         });
     </script>
+
 </body>
