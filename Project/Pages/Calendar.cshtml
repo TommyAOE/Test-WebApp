@@ -6,11 +6,21 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.css" />
-    <link rel="stylesheet" href="Calendar.cshtml.css" />
 </head>
 
 <body>
     <div class="calendar" id='calendar'></div>
+    <div>
+        <form method="post">
+            <label asp-for="Model.Email"></label>
+            <input asp-for="Model.Email" class="form-control" />
+            <label asp-for="Model.StartDate"></label>
+            <input asp-for="Model.StartDate" class="form-control" type="date" />
+            <label asp-for="Model.EndDate"></label>
+            <input asp-for="Model.EndDate" class="form-control" type="date" />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -21,16 +31,12 @@
 
         $jq(document).ready(function() {
             $jq('#calendar').fullCalendar({
-                events: [
-                    {
-                        title: 'Event 1',
-                        start: '2023-10-25'
-                    },
-                    {
-                        title: 'Event 2',
-                        start: '2023-10-28'
-                    }
-                ]
+                events: {
+                url: '/Calendar?handler=Events', // Endpoint to fetch events data
+                method: 'get',
+                failure: function() {
+                    alert('There was an error fetching events!');
+                }
             });
         });
     </script>

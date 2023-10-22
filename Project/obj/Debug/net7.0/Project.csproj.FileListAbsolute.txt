@@ -578,7 +578,6 @@ c:/Users/fullm/Desktop/Test-WebApp/Project/obj/Debug/net7.0/scopedcss/Pages/Cale
 /home/tommy/Desktop/Test-WebApp/Project/obj/Debug/net7.0/staticwebassets.pack.json
 /home/tommy/Desktop/Test-WebApp/Project/obj/Debug/net7.0/staticwebassets.build.json
 /home/tommy/Desktop/Test-WebApp/Project/obj/Debug/net7.0/staticwebassets.development.json
-/home/tommy/Desktop/Test-WebApp/Project/obj/Debug/net7.0/scopedcss/Pages/Calendar.cshtml.rz.scp.css
 /home/tommy/Desktop/Test-WebApp/Project/obj/Debug/net7.0/scopedcss/Pages/Shared/_Layout.cshtml.rz.scp.css
 /home/tommy/Desktop/Test-WebApp/Project/obj/Debug/net7.0/scopedcss/bundle/Project.styles.css
 /home/tommy/Desktop/Test-WebApp/Project/obj/Debug/net7.0/scopedcss/projectbundle/Project.bundle.scp.css
